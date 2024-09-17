@@ -36,10 +36,8 @@ def get_openai_response(prompt):
         )
         message = response.choices[0].message['content'].strip()
         return message
-    except openai.error.OpenAIError as e:
-        return f"Errore API di OpenAI: {e}"
-    except Exception as e:
-        return f"Errore Generico: {e}"
+    except Exception as e: # Cattura tutte le eccezioni
+        return f"Errore: {e}" # Restituisci un messaggio di errore generico
 
 # Campo di input per l'utente
 user_input = st.text_input("Tu:", "")
