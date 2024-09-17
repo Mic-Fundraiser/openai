@@ -23,7 +23,8 @@ st.write(
 # Funzione per ottenere la risposta da OpenAI
 def get_openai_response(prompt):
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.OpenAI()
+        response = client.chat.completions.create(
             model="gpt-4",  # Puoi sostituire con "gpt-3.5-turbo" se preferisci
             messages=[
                 {"role": "system", "content": "Sei un assistente utile."},
@@ -34,7 +35,7 @@ def get_openai_response(prompt):
             stop=None,
             temperature=0.7,
         )
-        message = response.choices[0].message['content'].strip()
+        message = response.choices[0].message.content.strip()
         return message
     except Exception as e: # Cattura tutte le eccezioni
         return f"Errore: {e}" # Restituisci un messaggio di errore generico
