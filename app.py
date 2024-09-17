@@ -2,7 +2,6 @@ import streamlit as st
 import openai
 
 # Inserisci la tua chiave API di OpenAI qui
-openai.api_key = "sk-5NueFBCbvf-EuxhS3fvodRgJRDQqHPJWWgbHdERGXgT3BlbkFJMatqGr2LPvzqsAzjWZgrZPFpKpPvudmSX8rqRe1s0A"
 
 # Configura la pagina Streamlit
 st.set_page_config(
